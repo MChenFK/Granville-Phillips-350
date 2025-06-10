@@ -11,12 +11,16 @@ logging.basicConfig(
 )
 
 def main():
-    port = '/tmp/ttyV0'
-    baudrate = 9600
-
     try:
-        ser = serial.Serial(port, baudrate=baudrate, timeout=2)
-        print(f"Connected to {port}. Type commands (e.g., #RD). Type 'exit' to quit.")
+        ser = serial.Serial(
+            port='/tmp/ttyV0',
+            #port='dev/ttyUSB0',
+            baudrate=9600,
+            bytesize=serial.EIGHTBITS,
+            parity=serial.PARITY_NONE,
+            stopbits=serial.STOPBITS_ONE,
+            timeout=2)
+        print(f"Connected to {ser.port}. Type commands (e.g., #RD). Type 'exit' to quit.")
 
         while True:
             user_input = input("Command> ").strip()
