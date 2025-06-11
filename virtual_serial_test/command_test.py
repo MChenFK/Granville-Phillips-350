@@ -15,12 +15,12 @@ port = 'dev/ttyUSB0'
 def main():
     try:
         ser = serial.Serial(
-            port='/tmp/ttyV0',
-            #port='/dev/ttyUSB0',
+            #port='/tmp/ttyV0',
+            port='/dev/ttyUSB0',
             baudrate=9600,
             bytesize=serial.EIGHTBITS,
             parity=serial.PARITY_NONE,
-            stopbits=serial.STOPBITS_TWO,
+            stopbits=serial.STOPBITS_ONE,
             timeout=1,
             rtscts=True,
             dsrdtr=True)
