@@ -15,13 +15,15 @@ port = 'dev/ttyUSB0'
 def main():
     try:
         ser = serial.Serial(
-            #port='/tmp/ttyV0',
-            port='/dev/ttyUSB0',
+            port='/tmp/ttyV0',
+            #port='/dev/ttyUSB0',
             baudrate=9600,
             bytesize=serial.EIGHTBITS,
             parity=serial.PARITY_NONE,
             stopbits=serial.STOPBITS_TWO,
-            timeout=2)
+            timeout=1,
+            rtscts=True,
+            dsrdtr=True)
         print(f"Connected to {ser.port}. Type commands (e.g., #RD). Type 'exit' to quit.")
 
         while True:
